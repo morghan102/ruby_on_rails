@@ -1,0 +1,20 @@
+<% #adding .html makes it clear this view if for generating html %>
+
+<h1>All Articles</h1>
+
+<ul id="articles">
+    <% @articles.each do |article| %>
+        <li>
+            <%= link_to article.title, article_path(article) %>
+        <% #the 1st part after link_to is what it'll say
+        #next part is the route helper %>
+        </li>
+    <% end %>
+</ul>
+<% link_to "Create a New Article", new_article_path, class: 'new_article' %>
+
+
+<% #class: is for the css %>
+<% #ERB is a templating lang that allows to mix ruby into html
+#ERB clauses start w/ <% (result of the ruby code will b hidden)
+#or <%= (result of ruby code will be output inplace of the clause) %>
