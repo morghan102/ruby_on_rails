@@ -1,0 +1,24 @@
+<%= form_for(@article) do |f| %>
+    <%-# formfor=help meth, takes 1 param(article)&block w form fields -%>
+    <%-#"make form for obj @art, call if f&add following elements" -%>
+        <ul>
+        <% @article.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+        </ul>
+        <p>
+            <%= f.label :title %><br />
+    <%# f.label=helper makes html label. good usability prac -%>
+            <%= f.text_field :title %>
+    <%# f.tF=hlpr creates single line text box namd "title" -%>
+        </p>
+        <p>
+            <%= f.label :body %><br />
+            <%= f.text_area :body %>
+    <%#f.tA=helper makes multi line text box name "body" -%>
+        </p>
+        <p>
+            <%= f.submit %>
+    <%# hlpr makes btn called "create" -%>
+        </p>
+    <% end %>
